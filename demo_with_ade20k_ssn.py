@@ -59,8 +59,8 @@ args.fc_dim = 2048
 
 # Load semantic segmentation network module
 builder = ModelBuilder()
-net_encoder = builder.build_encoder(arch=args.arch_encoder, fc_dim=args.fc_dim, weights=args.weights_encoder)
-net_decoder = builder.build_decoder(arch=args.arch_decoder, fc_dim=args.fc_dim, num_class=args.num_class, weights=args.weights_decoder, use_softmax=True)
+net_encoder = builder.build_encoder(fc_dim=args.fc_dim, weights=args.weights_encoder)
+net_decoder = builder.build_decoder(fc_dim=args.fc_dim, num_class=args.num_class, weights=args.weights_decoder, use_softmax=True)
 crit = nn.NLLLoss(ignore_index=-1)
 segmentation_module = SegmentationModule(net_encoder, net_decoder, crit)
 segmentation_module.cuda()

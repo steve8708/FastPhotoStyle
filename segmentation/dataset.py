@@ -6,6 +6,10 @@ import numpy as np
 from PIL import Image
 
 
+# Round x to the nearest multiple of p and x' >= x
+def round2nearest_multiple(x, p):
+    return ((x - 1) // p + 1) * p
+
 def imresize(im, size, interp='bilinear'):
     if interp == 'nearest':
         resample = Image.NEAREST
