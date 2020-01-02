@@ -1,5 +1,5 @@
 outputs/
-models/
+./models
 results/
 images/
 data/
